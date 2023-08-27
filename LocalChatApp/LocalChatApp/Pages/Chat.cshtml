@@ -1,0 +1,21 @@
+﻿@page
+@model LocalChatApp.Pages.ChatModel
+@{
+    ViewData["Title"] = "Chat";
+}
+
+<form>
+    <input type="text" name="message" id="message" placeholder="text..." required />
+    <input type="submit" value="Send" />
+</form>
+
+<hr />
+
+<ul>
+    @foreach (Models.Message message in Model.Messages)
+    {
+        <li>
+            @message.MessageProp
+        </li>
+    }
+</ul>
