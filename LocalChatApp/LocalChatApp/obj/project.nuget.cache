@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V4Xku0WtxvOCOViOBetdWludLkg6lQldigyQ7DGfZpNBMKY/a7Oi7BiTvbTT0V9a3jPK5P8Bnk0jFei6ulOKOA==",
+  "dgSpecHash": "HmW7sPVCiJlb8n/Of6d88Lz7ZQAzAQxbbolwpN68D3yxw+iIg9sYLqaWBbDH0BivYLT4v1Xk2QUEAuQCJIS8Cw==",
   "success": true,
-  "projectFilePath": "D:\\Web Projects\\LocalChatApp\\LocalChatApp\\LocalChatApp.csproj",
+  "projectFilePath": "D:\\Web Projects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\LocalChatApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yamen\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\yamen\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

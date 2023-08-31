@@ -9,9 +9,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddSignalR();
 
 builder.Services.AddDbContext<MyDBContext>(options =>
-{
-	options.UseSqlServer("Data Source=localhost;Initial Catalog=myDatabase;Integrated Security=True;TrustServerCertificate=true;");
-});
+	options.UseSqlServer("Data Source=localhost;Initial Catalog=myDatabase;Integrated Security=True;TrustServerCertificate=true;")
+);
 
 var app = builder.Build();
 

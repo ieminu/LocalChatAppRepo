@@ -6,9 +6,8 @@ namespace LocalChatApp.Models
 	{
 		public DbSet<Message> Messages { get; set; }
 
-		public MyDBContext(DbContextOptions options) : base(options)
+		public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
 		{
-
 		}
 	}
 }
