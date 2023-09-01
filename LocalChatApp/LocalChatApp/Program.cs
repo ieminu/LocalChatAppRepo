@@ -1,3 +1,4 @@
+using LocalChatApp;
 using LocalChatApp.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddSignalR();
 
@@ -28,6 +31,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+    endpoints.MapHub<ChatHub>("/Chat-Hub")
+);
 
 app.MapRazorPages();
 

@@ -148,3 +148,7 @@ D:\Web Projects\LocalChatAppRepo\LocalChatApp\LocalChatApp\obj\Debug\net7.0\scop
 D:\Web Projects\LocalChatAppRepo\LocalChatApp\LocalChatApp\obj\Debug\net7.0\LocalChatApp.csproj.CopyComplete
 D:\Web Projects\LocalChatAppRepo\LocalChatApp\LocalChatApp\obj\Debug\net7.0\LocalChatApp.genruntimeconfig.cache
 D:\Web Projects\LocalChatAppRepo\LocalChatApp\LocalChatApp\obj\Debug\net7.0\ref\LocalChatApp.dll
+D:\Web Projects\LocalChatAppRepo\LocalChatApp\LocalChatApp\bin\Debug\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\Web Projects\LocalChatAppRepo\LocalChatApp\LocalChatApp\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Common.dll
+D:\Web Projects\LocalChatAppRepo\LocalChatApp\LocalChatApp\bin\Debug\net7.0\Microsoft.Extensions.Features.dll
+D:\Web Projects\LocalChatAppRepo\LocalChatApp\LocalChatApp\bin\Debug\net7.0\Microsoft.Extensions.Options.dll

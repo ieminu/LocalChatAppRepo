@@ -18,21 +18,21 @@ namespace LocalChatApp.Pages
             _context = context;
         }
 
-        public void OnGet()
-        {
-			if (Request.Query["message"].ToString() != "")
-			{
-				Message message = new()
-				{
-					MessageProp = Request.Query["message"]
-				};
+   //     public void OnGet()
+   //     {
+			//if (Request.Query["message"].ToString() != "")
+			//{
+			//	Message message = new()
+			//	{
+			//		MessageProp = Request.Query["message"]
+			//	};
 
-				_context.Messages.Add(message);
+			//	_context.Messages.Add(message);
 
-				_context.SaveChanges();
-			}
+			//	_context.SaveChanges();
+			//}
 
-			Messages = _context.Messages.ToList();
-        }
+			//Messages = _context.Messages.ToList();
+   //     }
     }
 }

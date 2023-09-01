@@ -2,20 +2,41 @@
 @model LocalChatApp.Pages.ChatModel
 @{
     ViewData["Title"] = "Chat";
+
+    string link = "https://cdn.jsdelivr.net/npm/@microsoft/signalr@7.0.10/dist/browser/signalr.min.js";
 }
 
 <form>
     <input type="text" name="message" id="message" placeholder="text..." required />
-    <input type="submit" value="Send" />
+    <input type="submit" value="Send" id="sendMessage" />
 </form>
 
 <hr />
 
-<ul>
-    @foreach (Models.Message message in Model.Messages)
+<ul id="messageList"></ul>
+
+<script src="@link"></script>
+
+<script>
+    //Set connection
+    let connection = new signalR.HubConnectionBuilder.withUrl("/Chat-Hub");
+    connection.start();
+
+    //Send message by event Listener
+    document.getElementById("sendMessage").addEventListener("click", function
     {
-        <li>
-            @message.MessageProp
-        </li>
-    }
-</ul>
+        let message = document.getElementById("message").textContent;
+
+        connection.invoke("SendMessage", message);
+
+        event.preventDefault();
+    });
+
+    //Receive the message
+    connection.on("ReceiveMessage" function (message) {
+        let _message = document.createElement("li");
+        _message.textContent = message;
+
+        document.getElementById("messageList").appendChild(_message);
+    });
+</script>
