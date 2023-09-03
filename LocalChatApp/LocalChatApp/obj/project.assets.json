@@ -3618,11 +3618,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Web Projects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\LocalChatApp.csproj",
+      "projectUniqueName": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\LocalChatApp.csproj",
       "projectName": "LocalChatApp",
-      "projectPath": "D:\\Web Projects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\LocalChatApp.csproj",
+      "projectPath": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\LocalChatApp.csproj",
       "packagesPath": "C:\\Users\\yamen\\.nuget\\packages\\",
-      "outputPath": "D:\\Web Projects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\obj\\",
+      "outputPath": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

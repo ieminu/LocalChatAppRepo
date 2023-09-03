@@ -7,9 +7,7 @@ namespace LocalChatApp.Pages
 {
     public class ChatModel : PageModel
     {
-        public Message? Message { get; set; }
-
-        public List<Message> Messages = new();
+        public List<Message>? Messages { get; private set; } = new List<Message>();
 
         readonly MyDBContext _context;
 
@@ -18,21 +16,25 @@ namespace LocalChatApp.Pages
             _context = context;
         }
 
-   //     public void OnGet()
-   //     {
-			//if (Request.Query["message"].ToString() != "")
-			//{
-			//	Message message = new()
-			//	{
-			//		MessageProp = Request.Query["message"]
-			//	};
+        public void OnGet()
+        {
+            Messages = _context.Messages.ToList();
+        }
 
-			//	_context.Messages.Add(message);
+        public void SaveAndShowMessage(string message)
+        {
+            if (message != "")
+            {
+                //Saving
+                Message _message = new()
+                {
+                    MessageProp = message
+                };
+                _context.Messages.Add(_message);
+                _context.SaveChanges();
 
-			//	_context.SaveChanges();
-			//}
-
-			//Messages = _context.Messages.ToList();
-   //     }
+                Messages = _context.Messages.ToList();
+            }
+        }
     }
 }

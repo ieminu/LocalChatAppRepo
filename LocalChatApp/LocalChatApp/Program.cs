@@ -1,5 +1,6 @@
-using LocalChatApp;
+using LocalChatApp.Hubs;
 using LocalChatApp.Models;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,11 +32,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.UseEndpoints(endpoints =>
-    endpoints.MapHub<ChatHub>("/Chat-Hub")
-);
-
+app.MapHub<ChatHub>("/chatHub");
 app.MapRazorPages();
 
 app.Run();
