@@ -53,7 +53,8 @@
         event.preventDefault();
     
         $.ajax({
-            type: "Get",
+            type: "GET",
+            data: {"message" : message}
         });
     });
 </script>
