@@ -6,6 +6,6 @@ namespace LocalChatApp.Models
 	{
         public int Id { get; set; }
 
-        public string? MessageProp { get; set; }
+        public string? UsernameAndMessage { get; set; }
     }
 }

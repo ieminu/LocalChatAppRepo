@@ -21,14 +21,14 @@ namespace LocalChatApp.Pages
             Messages = _context.Messages.ToList();
 
             if (Request.Query["message"].ToString() != "")
-                _ = AddMessageToDatabase(Request.Query["username"].ToString() + ":" + Request.Query["message"].ToString());
+                _ = AddUsernameAndMessageToDatabase(Request.Query["username"].ToString() + ":" + Request.Query["message"].ToString());
         }
 
-        public async Task AddMessageToDatabase(string unAndMsg)
+        public async Task AddUsernameAndMessageToDatabase(string unAndMsg)
         {
             Message _message = new()
             {
-                MessageProp = unAndMsg
+                UsernameAndMessage = unAndMsg
             };
             await _context.Messages.AddAsync(_message);
             _context.SaveChanges();

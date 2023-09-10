@@ -22,11 +22,11 @@
         @foreach (Message message in Model.Messages)
         {
             <dt>
-                @message.MessageProp?.Split(':')[0]:
+                @message.UsernameAndMessage?.Split(':')[0]:
             </dt>
 
             <dd>
-                @message.MessageProp?.Split(':')[1]
+                @message.UsernameAndMessage?.Split(':')[1]
             </dd>
         }
 </dl>
