@@ -18,17 +18,17 @@ namespace LocalChatApp.Pages
 
         public void OnGet()
         {
-            if (Request.Query["message"].ToString() != "")
-                _ = AddMessageToDatabase(Request.Query["message"].ToString());
-
             Messages = _context.Messages.ToList();
+
+            if (Request.Query["message"].ToString() != "")
+                _ = AddMessageToDatabase(Request.Query["username"].ToString() + ":" + Request.Query["message"].ToString());
         }
 
-        public async Task AddMessageToDatabase(string message)
+        public async Task AddMessageToDatabase(string unAndMsg)
         {
             Message _message = new()
             {
-                MessageProp = message
+                MessageProp = unAndMsg
             };
             await _context.Messages.AddAsync(_message);
             _context.SaveChanges();

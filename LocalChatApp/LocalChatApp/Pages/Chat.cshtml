@@ -7,22 +7,29 @@
 
 <form method="get">
     <div>
-        <input type="text" name="message" id="messageInput" placeholder="text..." required />
+        <input type="text" name="username" id="usernameInput" placeholder="username"/>
+    </div>
+    <div>
+        <input type="text" name="message" id="messageInput" placeholder="message" required />
     </div>
     <input type="submit" value="Send" id="sendButton" />
 </form>
 
 <hr />
 
-<ul id="messagesList">
+<dl id="messagesList">
     @if (Model.Messages is not null)
         @foreach (Message message in Model.Messages)
         {
-            <li>
-                @message.MessageProp
-            </li>
+            <dt>
+                @message.MessageProp?.Split(':')[0]:
+            </dt>
+
+            <dd>
+                @message.MessageProp?.Split(':')[1]
+            </dd>
         }
-</ul>
+</dl>
 
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -33,10 +40,15 @@
 
     document.getElementById("sendButton").disabled = true;
 
-    connection.on("ReceiveMessage", function (message) {
-        var li = document.createElement("li");
-        document.getElementById("messagesList").appendChild(li);
-        li.textContent = `${message}`;
+    connection.on("ReceiveMessage", function (username, message) {
+        var dt = document.createElement("dt");
+        var dd = document.createElement("dd");
+
+        document.getElementById("messagesList").appendChild(dt);
+        document.getElementById("messagesList").appendChild(dd);
+
+        dt.textContent = username + ":";
+        dd.textContent = message;
     });
 
     connection.start().then(function () {
@@ -46,15 +58,16 @@
     });
 
     document.getElementById("sendButton").addEventListener("click", function (event) {
+        let username = document.getElementById("usernameInput").value;
         let message = document.getElementById("messageInput").value;
-        connection.invoke("SendMessage", message).catch(function (err) {
+        connection.invoke("SendMessage", username, message).catch(function (err) {
             return console.error(err.toString());
         });
         event.preventDefault();
     
         $.ajax({
             type: "GET",
-            data: {"message" : message}
+            data: { "username": username, "message": message }
         });
     });
 </script>

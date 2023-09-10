@@ -5,9 +5,9 @@ namespace LocalChatApp.Hubs
 {
     public class ChatHub : Hub
     {
-        public async Task SendMessage(string message)
+        public async Task SendMessage(string username, string message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", message);
+            await Clients.All.SendAsync("ReceiveMessage", username, message);
         }
     }
 }
