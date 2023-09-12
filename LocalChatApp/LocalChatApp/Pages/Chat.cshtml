@@ -5,14 +5,10 @@
     ViewData["Title"] = "Chat";
 }
 
-<form method="get">
-    <div>
-        <input type="text" name="username" id="usernameInput" placeholder="username"/>
-    </div>
-    <div>
-        <input type="text" name="message" id="messageInput" placeholder="message" required />
-    </div>
+<form>
+    <input type="text" name="message" id="messageInput" placeholder="message" required />
     <input type="submit" value="Send" id="sendButton" />
+    <input style="float:right" type="text" name="username" id="usernameInput" placeholder="username" size="10" required />
 </form>
 
 <hr />
@@ -33,41 +29,10 @@
 
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="~/js/chat.js"></script>
 <script>
-    "use strict";
+    function AlignListItem()
+    {
 
-    var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
-
-    document.getElementById("sendButton").disabled = true;
-
-    connection.on("ReceiveMessage", function (username, message) {
-        var dt = document.createElement("dt");
-        var dd = document.createElement("dd");
-
-        document.getElementById("messagesList").appendChild(dt);
-        document.getElementById("messagesList").appendChild(dd);
-
-        dt.textContent = username + ":";
-        dd.textContent = message;
-    });
-
-    connection.start().then(function () {
-        document.getElementById("sendButton").disabled = false;
-    }).catch(function (err) {
-        return console.error(err.toString());
-    });
-
-    document.getElementById("sendButton").addEventListener("click", function (event) {
-        let username = document.getElementById("usernameInput").value;
-        let message = document.getElementById("messageInput").value;
-        connection.invoke("SendMessage", username, message).catch(function (err) {
-            return console.error(err.toString());
-        });
-        event.preventDefault();
-    
-        $.ajax({
-            type: "GET",
-            data: { "username": username, "message": message }
-        });
-    });
+    }
 </script>
