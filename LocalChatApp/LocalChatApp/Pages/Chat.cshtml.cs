@@ -1,7 +1,5 @@
 using LocalChatApp.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace LocalChatApp.Pages
 {
@@ -16,19 +14,19 @@ namespace LocalChatApp.Pages
             _context = context;
         }
 
-        public void OnGet()
+        public void OnGet(string message, string username)
         {
-            Messages = _context.Messages.ToList();
+            if (username != null && message != null)
+                _ = AddMessageToDatabase(username + ":" + message);
 
-            if (Request.Query["message"].ToString() != "")
-                _ = AddUsernameAndMessageToDatabase(Request.Query["username"].ToString() + ":" + Request.Query["message"].ToString());
+            Messages = _context.Messages.ToList();
         }
 
-        public async Task AddUsernameAndMessageToDatabase(string unAndMsg)
+        private async Task AddMessageToDatabase(string usrAndMsg)
         {
             Message _message = new()
             {
-                UsernameAndMessage = unAndMsg
+                UsernameAndMessage = usrAndMsg
             };
             await _context.Messages.AddAsync(_message);
             _context.SaveChanges();

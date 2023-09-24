@@ -3,12 +3,15 @@
 @model LocalChatApp.Pages.ChatModel
 @{
     ViewData["Title"] = "Chat";
+
+    string username = "a user";//attach from database
 }
 
-<form>
+<input style="float:right" type="text" name="username" id="usernameInput" placeholder="username" size="10" value="@username" required autocomplete="on" />
+
+<form method="get">
     <input type="text" name="message" id="messageInput" placeholder="message" required />
     <input type="submit" value="Send" id="sendButton" />
-    <input style="float:right" type="text" name="username" id="usernameInput" placeholder="username" size="10" required />
 </form>
 
 <hr />
@@ -30,9 +33,3 @@
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="~/js/chat.js"></script>
-<script>
-    function AlignListItem()
-    {
-
-    }
-</script>
