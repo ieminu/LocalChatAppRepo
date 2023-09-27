@@ -1,5 +1,6 @@
 using LocalChatApp.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace LocalChatApp.Pages
 {
@@ -14,8 +15,11 @@ namespace LocalChatApp.Pages
             _context = context;
         }
 
-        public void OnGet(string message, string username)
+        public void OnGet()
         {
+            string username = Request.Query["username"].ToString();
+            string message = Request.Query["message"].ToString();
+
             if (username != null && message != null)
                 _ = AddMessageToDatabase(username + ":" + message);
 

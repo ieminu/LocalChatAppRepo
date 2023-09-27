@@ -6,6 +6,6 @@
     "\\LocalChatApp\\wwwroot",
     "\\LocalChatApp\\wwwroot\\js"
   ],
-  "SelectedNode": "\\LocalChatApp\\Program.cs",
+  "SelectedNode": "\\LocalChatApp\\Pages\\Chat.cshtml",
   "PreviewInSolutionExplorer": false
 }
