@@ -1,0 +1,29 @@
+﻿@page
+@model LocalChatApp.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<br />
+
+<form method="post">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required autocomplete="on" />
+    </div>
+    <br />
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required autocomplete="on" />
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Confirm" />
+    </div>
+</form>
+
+<br />
+
+<p>@Model.ReportMessage</p>
