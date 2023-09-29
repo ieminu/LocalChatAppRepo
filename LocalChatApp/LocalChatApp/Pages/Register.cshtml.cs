@@ -6,9 +6,11 @@ namespace LocalChatApp.Pages
 {
     public class RegisterModel : PageModel
     {
-        readonly MyDBContext _context;
+        public string ErrorMessage { get; private set; } = string.Empty;
 
-        public string ReportMessage { get; private set; } = "";
+        public string SuccessMessage { get; private set; } = string.Empty;
+
+        readonly MyDBContext _context;
 
         public RegisterModel(MyDBContext context)
         {
@@ -24,6 +26,7 @@ namespace LocalChatApp.Pages
                 if (user.Username == username)
                 {
                     isAdded = true;
+                    ErrorMessage = "This username is taken!";
                 }
             }
 
@@ -45,11 +48,11 @@ namespace LocalChatApp.Pages
                 await _context.Users.AddAsync(user);
                 _context.SaveChanges();
 
-                ReportMessage = "Registered successfully!";
+                SuccessMessage = "Registered successfully!";
             }
             catch (Exception ex)
             {
-                ReportMessage = ex.Message;
+                ErrorMessage = ex.Message;
             }
         }
     }
