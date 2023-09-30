@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "97OD9B11b8Yah919hjaYU208YdF+XSyA7JqSzIcMYv0=",
+  "Hash": "SLmRSuQmCDtCugM96CxSnm6OMT4LIMrW61AQlsCE54Q=",
   "Source": "LocalChatApp",
   "BasePath": "_content/LocalChatApp",
   "Mode": "Default",
@@ -85,12 +85,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Mask password icon.png",
+      "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Mask_password_icon.png",
       "SourceId": "LocalChatApp",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\",
       "BasePath": "_content/LocalChatApp",
-      "RelativePath": "Images/Mask password icon.png",
+      "RelativePath": "Images/Mask_password_icon.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,15 +99,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Mask password icon.png"
+      "OriginalItemSpec": "wwwroot\\Images\\Mask_password_icon.png"
     },
     {
-      "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Show password icon.png",
+      "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Show_password_icon.png",
       "SourceId": "LocalChatApp",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\",
       "BasePath": "_content/LocalChatApp",
-      "RelativePath": "Images/Show password icon.png",
+      "RelativePath": "Images/Show_password_icon.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,7 +116,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Show password icon.png"
+      "OriginalItemSpec": "wwwroot\\Images\\Show_password_icon.png"
     },
     {
       "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\js\\chat.js",

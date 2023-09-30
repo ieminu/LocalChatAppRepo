@@ -17,7 +17,7 @@
     <div>
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" required autocomplete="on" />
-        <img id="maskShowPassword" onclick="toggleVisibility()" src="~/Images/Mask_password_icon.png" alt="Mask/Show Password" width="35px" />
+        <img id="maskShowPassword" onclick="toggleVisibility()" src="~/Images/Mask_password_icon.png" alt="Masked Password" width="35px" />
     </div>
     <br />
     <div>
@@ -36,12 +36,14 @@
     function toggleVisibility(event) {
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            maskShowPasswordImg.src = "/Images/Show_password_icon.png"
+            maskShowPasswordImg.src = "/Images/Show_password_icon.png";
+            maskShowPasswordImg.alt = "Shown Password";
         }
 
         else if (passwordInput.type === "text") {
             passwordInput.type = "password";
-            maskShowPasswordImg.src = "/Images/Mask_password_icon.png"
+            maskShowPasswordImg.src = "/Images/Mask_password_icon.png";
+            maskShowPasswordImg.alt = "Masked Password";
         }
 
         event.preventDefault();

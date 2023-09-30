@@ -10,7 +10,7 @@ namespace LocalChatApp.Pages
 
         readonly MyDBContext _context;
 
-        public static string Username { get; private set; } = "";
+        public static string Username { get; set; } = string.Empty;
 
         public ChatModel(MyDBContext context)
         {
@@ -19,28 +19,43 @@ namespace LocalChatApp.Pages
 
         public void OnGet()
         {
-            string username = Request.Query["username"].ToString();
-            string message = Request.Query["message"].ToString();
+            ChangeUsername(Request.Query["username"].ToString());
 
+            _ = AddUsernameAndMessageToDatabase(Username, Request.Query["message"].ToString());
+
+            UpdateMessagesList();
+        }
+
+        private async Task AddUsernameAndMessageToDatabase(string username, string message)
+        {
             if (username != string.Empty && message != string.Empty)
-                _ = AddMessageToDatabase(username + ":" + message);
+            {
+                Message _message = new()
+                {
+                    UsernameAndMessage = username + ":" + message
+                };
+                await _context.Messages.AddAsync(_message);
+                _context.SaveChanges();
+            }
+        }
 
+        void UpdateMessagesList()
+        {
             Messages = _context.Messages.ToList();
         }
 
-        private async Task AddMessageToDatabase(string usrAndMsg)
+        void ChangeUsername(string username)
         {
-            Message _message = new()
-            {
-                UsernameAndMessage = usrAndMsg
-            };
-            await _context.Messages.AddAsync(_message);
-            _context.SaveChanges();
-        }
-
-        public static void SetUsername(string username)
-        {
-            Username = username;
+            if (username != string.Empty)
+                foreach (User user in _context.Users.ToList())
+                {
+                    if (user.Username == Username)
+                    {
+                        user.Username = username;
+                        _context.SaveChanges();
+                        Username = username;
+                    }   
+                }
         }
     }
 }

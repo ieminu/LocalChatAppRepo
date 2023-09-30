@@ -5,7 +5,21 @@
     ViewData["Title"] = "Chat";
 }
 
-<input style="float:right" type="text" name="username" id="usernameInput" placeholder="username" size="10" value="@ChatModel.Username" required autocomplete="on" />
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+
+<form>
+    <div style="float:right">
+        <button type="button" id="editButton" onclick="EditUsername()">Change Username</button>
+        <div id="editUsername" class="hidden">
+            <input type="text" name="username" id="usernameInput" placeholder="username" size="10" value="@ChatModel.Username" required />
+            <input type="submit" value="Apply" />
+        </div>
+    </div>
+</form>
 
 <form method="get">
     <input type="text" name="message" id="messageInput" placeholder="message" required />
@@ -31,3 +45,11 @@
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="~/js/chat.js"></script>
+<script>
+    function EditUsername(event) { 
+        document.getElementById("editButton").style.display = "none";
+        document.getElementById("editUsername").style.display = "block";
+
+        event.preventDefualt();
+    }
+</script>

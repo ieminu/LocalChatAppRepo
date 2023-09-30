@@ -28,7 +28,7 @@ namespace LocalChatApp.Pages
                         ErrorMessage = string.Empty;
                         IsLoggedIn = true;
 
-                        ChatModel.SetUsername(user.Username);
+                        ChatModel.Username = user.Username;
 
                         return RedirectToPage("Index");
                     }

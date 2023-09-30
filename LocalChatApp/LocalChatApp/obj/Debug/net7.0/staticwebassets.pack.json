@@ -5,12 +5,12 @@
       "PackagePath": "staticwebassets\\LocalChatApp.bundle.scp.css"
     },
     {
-      "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Mask password icon.png",
-      "PackagePath": "staticwebassets\\Images\\Mask password icon.png"
+      "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Mask_password_icon.png",
+      "PackagePath": "staticwebassets\\Images\\Mask_password_icon.png"
     },
     {
-      "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Show password icon.png",
-      "PackagePath": "staticwebassets\\Images\\Show password icon.png"
+      "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Show_password_icon.png",
+      "PackagePath": "staticwebassets\\Images\\Show_password_icon.png"
     },
     {
       "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\css\\site.css",
