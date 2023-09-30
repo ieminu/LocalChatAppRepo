@@ -22,7 +22,7 @@ namespace LocalChatApp.Pages
             string username = Request.Query["username"].ToString();
             string message = Request.Query["message"].ToString();
 
-            if (username != null && message != null)
+            if (username != string.Empty && message != string.Empty)
                 _ = AddMessageToDatabase(username + ":" + message);
 
             Messages = _context.Messages.ToList();

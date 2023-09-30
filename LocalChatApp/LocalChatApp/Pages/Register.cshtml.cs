@@ -1,6 +1,7 @@
 using LocalChatApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace LocalChatApp.Pages
 {
@@ -17,18 +18,18 @@ namespace LocalChatApp.Pages
             _context = context;
         }
 
-        public void OnPost(string username, string password)
+        public void OnPost(string name, string username, string password)
         {
-            if (username != string.Empty && password != string.Empty)
+            if (name != string.Empty && username != string.Empty && password != string.Empty)
             {
                 bool isAdded = false;
 
                 foreach (User user in _context.Users.ToList())
                 {
-                    if (user.Username == username)
+                    if (user.Name == name)
                     {
                         isAdded = true;
-                        ErrorMessage = "This username is taken!";
+                        ErrorMessage = "This name is taken!";
                     }
                 }
 
@@ -36,6 +37,7 @@ namespace LocalChatApp.Pages
                 {
                     User user = new()
                     {
+                        Name = name,
                         Username = username,
                         Password = password
                     };

@@ -6,8 +6,6 @@ namespace LocalChatApp.Pages
 {
     public class LoginModel : PageModel
     {
-        //Add showing password mechanism
-
         public string ErrorMessage { get; private set; } = string.Empty;
 
         readonly MyDBContext _context;
@@ -19,22 +17,23 @@ namespace LocalChatApp.Pages
             _context = context;
         }
 
-        public IActionResult OnPost(string username, string password)
+        public IActionResult OnPost(string name, string password)
         {
             if (_context.Users.ToList().Count > 0)
             {
                 foreach (User user in _context.Users.ToList())
                 {
-                    if (user.Username?.ToLower() == username.ToLower() && user.Password == password)
+                    if (user.Name.ToLower() == name.ToLower() && user.Password == password)
                     {
                         ErrorMessage = string.Empty;
                         IsLoggedIn = true;
-                        ChatModel.SetUsername(username);
+
+                        ChatModel.SetUsername(user.Username);
 
                         return RedirectToPage("Index");
                     }
 
-                    ErrorMessage = "Cannot find a registered user with this username and password!";
+                    ErrorMessage = "Cannot find a registered user with this name and password!";
                 }
 
                 return Page();
