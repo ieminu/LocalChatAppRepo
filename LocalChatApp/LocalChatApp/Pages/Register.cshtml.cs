@@ -19,25 +19,28 @@ namespace LocalChatApp.Pages
 
         public void OnPost(string username, string password)
         {
-            bool isAdded = false;
-
-            foreach (User user in _context.Users.ToList())
+            if (username != string.Empty && password != string.Empty)
             {
-                if (user.Username == username)
+                bool isAdded = false;
+
+                foreach (User user in _context.Users.ToList())
                 {
-                    isAdded = true;
-                    ErrorMessage = "This username is taken!";
+                    if (user.Username == username)
+                    {
+                        isAdded = true;
+                        ErrorMessage = "This username is taken!";
+                    }
                 }
-            }
 
-            if (!isAdded)
-            {
-                User user = new User 
+                if (!isAdded)
                 {
-                    Username = username,
-                    Password = password
-                };
-                _ = AddUserToDatabase(user);
+                    User user = new()
+                    {
+                        Username = username,
+                        Password = password
+                    };
+                    _ = AddUserToDatabase(user);
+                }
             }
         }
 

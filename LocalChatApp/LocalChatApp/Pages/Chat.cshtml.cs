@@ -10,6 +10,8 @@ namespace LocalChatApp.Pages
 
         readonly MyDBContext _context;
 
+        public static string Username { get; private set; } = "";
+
         public ChatModel(MyDBContext context)
         {
             _context = context;
@@ -34,6 +36,11 @@ namespace LocalChatApp.Pages
             };
             await _context.Messages.AddAsync(_message);
             _context.SaveChanges();
+        }
+
+        public static void SetUsername(string username)
+        {
+            Username = username;
         }
     }
 }

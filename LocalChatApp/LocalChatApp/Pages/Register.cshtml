@@ -17,6 +17,7 @@
     <div>
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" required autocomplete="on" />
+        <img id="maskShowPassword" onclick="toggleVisibility()" src="~/Images/Mask_password_icon.png" alt="Mask/Show Password" width="35px" />
     </div>
     <br />
     <div>
@@ -29,3 +30,22 @@
 <p style="color:green">@Model.SuccessMessage</p>
 
 <p style="color:red">@Model.ErrorMessage</p>
+
+<script>
+    let passwordInput = document.getElementById("password");
+    let maskShowPasswordImg = document.getElementById("maskShowPassword");
+
+    function toggleVisibility(event) {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            maskShowPasswordImg.src = "/Images/Show_password_icon.png"
+        }
+
+        else if (passwordInput.type === "text") {
+            passwordInput.type = "password";
+            maskShowPasswordImg.src = "/Images/Mask_password_icon.png"
+        }
+
+        event.preventDefault();
+    }
+</script>

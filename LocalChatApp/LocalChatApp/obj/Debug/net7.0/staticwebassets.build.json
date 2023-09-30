@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FQzZJCSB7zldyXE9NLASnRVKmyQeuJn2PQutMGHjOOM=",
+  "Hash": "97OD9B11b8Yah919hjaYU208YdF+XSyA7JqSzIcMYv0=",
   "Source": "LocalChatApp",
   "BasePath": "_content/LocalChatApp",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Mask password icon.png",
+      "SourceId": "LocalChatApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\",
+      "BasePath": "_content/LocalChatApp",
+      "RelativePath": "Images/Mask password icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Mask password icon.png"
+    },
+    {
+      "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Show password icon.png",
+      "SourceId": "LocalChatApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\",
+      "BasePath": "_content/LocalChatApp",
+      "RelativePath": "Images/Show password icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Show password icon.png"
     },
     {
       "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\js\\chat.js",
