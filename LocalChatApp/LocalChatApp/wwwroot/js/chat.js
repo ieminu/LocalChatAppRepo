@@ -21,16 +21,13 @@ connection.start().then(function () {
     return console.error(err.toString());
 });
 
-document.getElementById("sendButton").addEventListener("click", function (event) {
+document.getElementById("sendButton").addEventListener("click", function () {
     let username = document.getElementById("usernameInput").value;
     let message = document.getElementById("messageInput").value;
-    connection.invoke("SendMessage", username, message).catch(function (err) {
-        return console.error(err.toString());
-    });
-    event.preventDefault();
 
-    $.ajax({
-        type: "GET",
-        data: { "username": username, "message": message }
-    });
+    if (username != "" && message != "") {
+        connection.invoke("SendMessage", username, message).catch(function (err) {
+            return console.error(err.toString());
+        });
+    }
 });

@@ -1,5 +1,6 @@
 using LocalChatApp.Hubs;
 using LocalChatApp.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,12 @@ builder.Services.AddDbContext<MyDBContext>(options =>
 	options.UseSqlServer("Data Source=localhost;Initial Catalog=myDatabase;Integrated Security=True;TrustServerCertificate=true;")
 );
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
+{
+	option.LoginPath = "/Login";
+	option.ExpireTimeSpan = TimeSpan.FromDays(1);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,6 +37,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 app.MapHub<ChatHub>("/chatHub");

@@ -3,17 +3,31 @@
 @model LocalChatApp.Pages.ChatModel
 @{
     ViewData["Title"] = "Chat";
+
+    string _color = string.Empty;
+
+    bool isLoggedIn = LoginModel.IsLoggedIn;
+
+    _color = !isLoggedIn ? "gray" : "currentColor";
 }
 
 <style>
     .hidden {
         display: none;
     }
+    
+    .dark {
+        color: @_color;
+    }
+
+    .warning {
+        color: red;
+    }
 </style>
 
 <form>
     <div style="float:right">
-        <button type="button" id="editButton" onclick="EditUsername()">Change Username</button>
+        <button type="button" id="editButton">Change Username</button>
         <div id="editUsername" class="hidden">
             <input type="text" name="username" id="usernameInput" placeholder="username" size="10" value="@ChatModel.Username" required />
             <input type="submit" value="Apply" />
@@ -23,8 +37,10 @@
 
 <form method="get">
     <input type="text" name="message" id="messageInput" placeholder="message" required />
-    <input type="submit" value="Send" id="sendButton" />
+    <input type="button" value="Send" id="sendButton" class="dark" />
+    <p id="warningMessage" class="warning hidden">You have to <a href="/Login">login</a> to be able to send messages!</p>
 </form>
+//check if sendButton's color is default if the user is logged in
 
 <hr />
 
@@ -44,12 +60,22 @@
 
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="~/js/chat.js"></script>
-<script>
-    function EditUsername(event) { 
-        document.getElementById("editButton").style.display = "none";
-        document.getElementById("editUsername").style.display = "block";
 
-        event.preventDefualt();
-    }
-</script>
+@if (!isLoggedIn) { 
+    <script>
+        document.getElementById("sendButton").addEventListener("click", function (event) {
+            document.getElementById("warningMessage").style.display = "block";
+            event.preventDefault();
+        });
+    </script>
+}
+
+<script src="~/js/chat.js"></script>
+
+@if (!isLoggedIn)
+{
+    <script>
+        document.getElementById("editButton").style.display = 'none';
+    </script>
+}
+<script src="~/js/editUsername.js"></script>

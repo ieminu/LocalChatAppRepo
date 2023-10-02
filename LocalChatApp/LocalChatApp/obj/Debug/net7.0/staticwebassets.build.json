@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SLmRSuQmCDtCugM96CxSnm6OMT4LIMrW61AQlsCE54Q=",
+  "Hash": "JzADP7qQDaQrf+Gq8AO4CbUM5hyomZqFsurx5Ba9DNA=",
   "Source": "LocalChatApp",
   "BasePath": "_content/LocalChatApp",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\chat.js"
+    },
+    {
+      "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\js\\editUsername.js",
+      "SourceId": "LocalChatApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\",
+      "BasePath": "_content/LocalChatApp",
+      "RelativePath": "js/editUsername.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\editUsername.js"
     },
     {
       "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",

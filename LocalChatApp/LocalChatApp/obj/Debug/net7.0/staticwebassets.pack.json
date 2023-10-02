@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\js\\chat.js"
     },
     {
+      "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\js\\editUsername.js",
+      "PackagePath": "staticwebassets\\js\\editUsername.js"
+    },
+    {
       "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
       "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.js"
     },

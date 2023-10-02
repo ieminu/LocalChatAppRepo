@@ -18,12 +18,12 @@ namespace LocalChatApp.Pages
             _context = context;
         }
 
-        public void OnGet()
+        public void OnPost(string name, string username, string password)
         {
-            _context.Database.ExecuteSqlRaw("delete from Users");
+            Register(name, username, password);
         }
 
-        public void OnPost(string name, string username, string password)
+        void Register(string name, string username, string password)
         {
             if (name != string.Empty && username != string.Empty && password != string.Empty)
             {

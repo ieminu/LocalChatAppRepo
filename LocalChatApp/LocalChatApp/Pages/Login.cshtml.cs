@@ -1,6 +1,9 @@
 using LocalChatApp.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Claims;
 
 namespace LocalChatApp.Pages
 {
@@ -10,39 +13,88 @@ namespace LocalChatApp.Pages
 
         readonly MyDBContext _context;
 
-        public static bool IsLoggedIn { get; private set; } = false;
+        public static bool IsLoggedIn { get; set; }
+
+        bool redirectToPage = false;
 
         public LoginModel(MyDBContext context)
         {
             _context = context;
         }
 
-        public IActionResult OnPost(string name, string password)
+        public IActionResult OnGet()
         {
-            if (_context.Users.ToList().Count > 0)
+            ClaimsPrincipal claimsPrincipal = HttpContext.User;
+
+            if (claimsPrincipal.Identity is not null && claimsPrincipal.Identity.IsAuthenticated)
             {
-                foreach (User user in _context.Users.ToList())
-                {
-                    if (user.Name.ToLower() == name.ToLower() && user.Password == password)
-                    {
-                        ErrorMessage = string.Empty;
-                        IsLoggedIn = true;
-
-                        ChatModel.Username = user.Username;
-
-                        return RedirectToPage("Index");
-                    }
-
-                    ErrorMessage = "Cannot find a registered user with this name and password!";
-                }
-
-                return Page();
+                IsLoggedIn = true;
+                return RedirectToPage("Index");
             }
 
             else
-            {
-                ErrorMessage = "Cannot find a registered user!";
                 return Page();
+        }
+
+        public IActionResult OnPost(string name, string password)
+        {
+            _ = Login(name, password);
+
+            return redirectToPage == true ? RedirectToPage("Index") : Page();
+        }
+
+        public async Task Login(string name, string password)
+        {
+            if (name != string.Empty && password != string.Empty)
+            {
+                if (_context.Users.ToList().Count > 0)
+                {
+                    foreach (User user in _context.Users.ToList())
+                    {
+                        if (user.Name.ToLower() == name.ToLower() && user.Password == password)
+                        {
+                            ErrorMessage = string.Empty;
+                            IsLoggedIn = true;
+
+                            ChatModel.Username = user.Username;
+
+                            //Authentication {
+                                List<Claim> claims = new()
+                                {
+                                    new Claim(ClaimTypes.NameIdentifier, name),
+                                    new Claim(ClaimTypes.NameIdentifier, user.Username),
+                                    new Claim(ClaimTypes.NameIdentifier, password)
+                                };
+
+                                ClaimsIdentity claimsIdentity = new(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                                AuthenticationProperties properties = new()
+                                {
+                                    AllowRefresh = true,
+                                    IsPersistent = true
+                                };
+
+                                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), properties);
+                            //}
+
+                            redirectToPage = true;
+                            return;
+                        }
+
+                        ErrorMessage = "Cannot find a registered user with this name and password!";
+                    }
+
+                    redirectToPage = false;
+                    return;
+                }
+
+                else
+                {
+                    ErrorMessage = "Cannot find a registered user!";
+
+                    redirectToPage = false;
+                    return;
+                }
             }
         }
     }
