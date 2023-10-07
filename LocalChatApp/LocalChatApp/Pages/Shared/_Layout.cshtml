@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/LocalChatApp.styles.css" asp-append-version="true" />
+
+    <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -44,7 +51,7 @@
                 else
                 {
                     <div style="justify-content:flex-end">
-                        <div>orta/////////////////
+                        <div class="centered">
                             <span>@ChatModel.Username</span>
                         </div>
                         <div class="nav-item">

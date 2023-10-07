@@ -1,7 +1,12 @@
 using LocalChatApp.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
+using System.Net.Http;
+using System.Security.Claims;
 
 namespace LocalChatApp.Pages
 {
@@ -11,6 +16,9 @@ namespace LocalChatApp.Pages
 
         public string SuccessMessage { get; private set; } = string.Empty;
 
+        [BindProperty]
+        public bool WantToLogin { get; set; } = false;
+
         readonly MyDBContext _context;
 
         public RegisterModel(MyDBContext context)
@@ -18,9 +26,17 @@ namespace LocalChatApp.Pages
             _context = context;
         }
 
-        public void OnPost(string name, string username, string password)
+        public IActionResult OnPost(string name, string username, string password)
         {
             Register(name, username, password);
+
+            if (WantToLogin)
+            {
+                return RedirectToPage("Login", new {name, password});
+            }
+
+            else
+                return Page();
         }
 
         void Register(string name, string username, string password)
@@ -29,7 +45,8 @@ namespace LocalChatApp.Pages
             {
                 bool isAdded = false;
 
-                foreach (User user in _context.Users.ToList())
+                if (_context != null)
+                    foreach (User user in _context.Users.ToList())
                 {
                     if (user.Name == name)
                     {
@@ -53,16 +70,19 @@ namespace LocalChatApp.Pages
 
         private async Task AddUserToDatabase(User user)
         {
-            try
+            if (_context != null)
             {
-                await _context.Users.AddAsync(user);
-                _context.SaveChanges();
+                try
+                {
+                    await _context.Users.AddAsync(user);
+                    _context.SaveChanges();
 
-                SuccessMessage = "Registered successfully!";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessage = ex.Message;
+                    SuccessMessage = "Registered successfully!";
+                }
+                catch (Exception ex)
+                {
+                    ErrorMessage = ex.Message;
+                }
             }
         }
     }

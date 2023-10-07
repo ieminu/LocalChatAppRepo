@@ -1,8 +1,10 @@
 using LocalChatApp.Hubs;
 using LocalChatApp.Models;
+using LocalChatApp.Pages;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 	option.LoginPath = "/Login";
 	option.ExpireTimeSpan = TimeSpan.FromDays(1);
 });
+
+builder.Services.AddTransient<LoginModel>();
 
 var app = builder.Build();
 

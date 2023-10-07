@@ -11,7 +11,7 @@ namespace LocalChatApp.Pages
     {
         public string ErrorMessage { get; private set; } = string.Empty;
 
-        readonly MyDBContext _context;
+        readonly MyDBContext? _context;
 
         public static bool IsLoggedIn { get; set; }
 
@@ -22,7 +22,7 @@ namespace LocalChatApp.Pages
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string name, string password)
         {
             ClaimsPrincipal claimsPrincipal = HttpContext.User;
 
@@ -32,6 +32,11 @@ namespace LocalChatApp.Pages
                 return RedirectToPage("Index");
             }
 
+            else if (name != string.Empty && password != string.Empty)
+            {
+                return OnPost(name, password);
+            }
+            
             else
                 return Page();
         }
@@ -43,11 +48,11 @@ namespace LocalChatApp.Pages
             return redirectToPage == true ? RedirectToPage("Index") : Page();
         }
 
-        public async Task Login(string name, string password)
+        private async Task Login(string name, string password)
         {
             if (name != string.Empty && password != string.Empty)
             {
-                if (_context.Users.ToList().Count > 0)
+                if (_context?.Users.ToList().Count > 0)
                 {
                     foreach (User user in _context.Users.ToList())
                     {
