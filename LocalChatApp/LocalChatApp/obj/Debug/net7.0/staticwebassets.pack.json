@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\LocalChatApp.bundle.scp.css"
     },
     {
+      "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Edit_Username_Icon.png",
+      "PackagePath": "staticwebassets\\Images\\Edit_Username_Icon.png"
+    },
+    {
       "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Mask_password_icon.png",
       "PackagePath": "staticwebassets\\Images\\Mask_password_icon.png"
     },

@@ -11,23 +11,18 @@
     _color = !isLoggedIn ? "gray" : "currentColor";
 }
 
+<link rel="stylesheet" href="~/css/myCss.css"/>
+
 <style>
-    .hidden {
-        display: none;
-    }
-    
     .dark {
         color: @_color;
-    }
-
-    .warning {
-        color: red;
     }
 </style>
 
 <form>
     <div class="float-end">
-        <button type="button" id="editButton">Change Username</button>
+        <span>@ChatModel.Username</span>/////////////////////hide
+        <button type="button" id="editButton" class="border-none"><img src="~/Images/Edit_Username_Icon.png" alt="Edit Username" width="23" height="23" /></button>
         <div id="editUsername" class="hidden">
             <input type="text" name="username" id="usernameInput" placeholder="username" size="10" value="@ChatModel.Username" required />
             <input type="submit" value="Apply" />

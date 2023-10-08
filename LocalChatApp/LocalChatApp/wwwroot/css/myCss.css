@@ -2,3 +2,15 @@
     display: flex;
     justify-content: center;
 }
+
+.hidden {
+    display: none;
+}
+
+.warning {
+    color: red;
+}
+
+.border-none {
+    border: none;
+}

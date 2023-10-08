@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7NLG6UrPyuF6J4DAHSsWiScPTlj0NMKcSr4afXNGzG8=",
+  "Hash": "aDygXJ5kW1FadaEdwf1w306udxw9KvuE1P8x9Kj0mzE=",
   "Source": "LocalChatApp",
   "BasePath": "_content/LocalChatApp",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Edit_Username_Icon.png",
+      "SourceId": "LocalChatApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\",
+      "BasePath": "_content/LocalChatApp",
+      "RelativePath": "Images/Edit_Username_Icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Edit_Username_Icon.png"
     },
     {
       "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\Images\\Mask_password_icon.png",
