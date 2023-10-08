@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\Images\\Show_password_icon.png"
     },
     {
+      "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\css\\myCss.css",
+      "PackagePath": "staticwebassets\\css\\myCss.css"
+    },
+    {
       "Id": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

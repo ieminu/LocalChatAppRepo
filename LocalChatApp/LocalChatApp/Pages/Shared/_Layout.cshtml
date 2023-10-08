@@ -7,13 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/LocalChatApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/myCss.css" />
 
-    <style>
-        .centered {
-            display: flex;
-            justify-content: center;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -37,7 +32,7 @@
                 @if (!LoginModel.IsLoggedIn)
                 {
                     <div class="navbar-collapse collapse d-sm-inline-flex">
-                        <ul style="justify-content:flex-end" class="navbar-nav flex-grow-1">
+                        <ul class="navbar-nav flex-grow-1 justify-content-end">
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
                             </li>
@@ -50,7 +45,7 @@
 
                 else
                 {
-                    <div style="justify-content:flex-end">
+                    <div class="justify-content-end">
                         <div class="centered">
                             <span>@ChatModel.Username</span>
                         </div>

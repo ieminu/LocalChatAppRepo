@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JzADP7qQDaQrf+Gq8AO4CbUM5hyomZqFsurx5Ba9DNA=",
+  "Hash": "7NLG6UrPyuF6J4DAHSsWiScPTlj0NMKcSr4afXNGzG8=",
   "Source": "LocalChatApp",
   "BasePath": "_content/LocalChatApp",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\LocalChatApp.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\css\\myCss.css",
+      "SourceId": "LocalChatApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\",
+      "BasePath": "_content/LocalChatApp",
+      "RelativePath": "css/myCss.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\myCss.css"
     },
     {
       "Identity": "D:\\WebProjects\\LocalChatAppRepo\\LocalChatApp\\LocalChatApp\\wwwroot\\css\\site.css",
