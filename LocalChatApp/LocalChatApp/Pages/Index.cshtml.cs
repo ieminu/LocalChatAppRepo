@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LocalChatApp.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
 
@@ -6,12 +6,12 @@ namespace LocalChatApp.Pages
 {
 	public class IndexModel : PageModel
 	{
-		private readonly ILogger<IndexModel> _logger;
+        private readonly MyDBContext _context;
 
-		public IndexModel(ILogger<IndexModel> logger)
-		{
-			_logger = logger;
-		}
+        public IndexModel(MyDBContext context) 
+        {
+            _context = context;
+        }
 
         public void OnGet()
         {
@@ -26,6 +26,8 @@ namespace LocalChatApp.Pages
             {
                 ChatModel.Username = HttpContext.User.Claims.ElementAt(1).Value;
             }
+
+            RegisterModel.SetUsers(_context);
         }
     }
 }

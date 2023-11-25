@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+@using LocalChatApp.Models;
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,7 +49,10 @@
                     <div class="justify-content-end">
                         <div class="centered">
                             <select>
-                                <option>@ChatModel.Username</option>////////////////////////////////name
+                                @foreach (User user in RegisterModel.Users)
+                                {
+                                    <option>@user.Name</option>
+                                }
                             </select>
                         </div>
                         <div class="nav-item">

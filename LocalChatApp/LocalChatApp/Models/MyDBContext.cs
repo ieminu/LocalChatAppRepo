@@ -11,5 +11,5 @@ namespace LocalChatApp.Models
 		public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
 		{
 		}
-	}
+    }
 }

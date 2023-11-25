@@ -17,38 +17,47 @@ namespace LocalChatApp.Pages
         public string SuccessMessage { get; private set; } = string.Empty;
 
         [BindProperty]
+        public new User User { get; set; } = new User
+        {
+            Name = string.Empty,
+            Username = string.Empty,
+            Password = string.Empty
+        };
+
+        [BindProperty]
         public bool WantToLogin { get; set; } = false;
 
-        readonly MyDBContext _context;
+        private readonly MyDBContext _context;
+
+        public static List<User> Users { get; private set; } = new();
 
         public RegisterModel(MyDBContext context)
         {
             _context = context;
         }
 
-        public IActionResult OnPost(string name, string username, string password)
+        public IActionResult OnPost()
         {
-            Register(name, username, password);
+            Register(User);
 
             if (WantToLogin)
             {
-                return RedirectToPage("Login", new {name, password});
+                return RedirectToPage("Login", new {User?.Name, User?.Password});
             }
 
             else
                 return Page();
         }
 
-        void Register(string name, string username, string password)
+        void Register(User user)
         {
-            if (name != string.Empty && username != string.Empty && password != string.Empty)
+            if (user.Name != string.Empty && user.Username != string.Empty && user.Password != string.Empty)
             {
                 bool isAdded = false;
 
-                if (_context != null)
-                    foreach (User user in _context.Users.ToList())
+                foreach (User _user in _context.Users.ToList())
                 {
-                    if (user.Name == name)
+                    if (_user.Name == user.Name)
                     {
                         isAdded = true;
                         ErrorMessage = "This name is taken!";
@@ -57,12 +66,6 @@ namespace LocalChatApp.Pages
 
                 if (!isAdded)
                 {
-                    User user = new()
-                    {
-                        Name = name,
-                        Username = username,
-                        Password = password
-                    };
                     _ = AddUserToDatabase(user);
                 }
             }
@@ -77,6 +80,8 @@ namespace LocalChatApp.Pages
                     await _context.Users.AddAsync(user);
                     _context.SaveChanges();
 
+                    Users.Add(user);
+
                     SuccessMessage = "Registered successfully!";
                 }
                 catch (Exception ex)
@@ -84,6 +89,11 @@ namespace LocalChatApp.Pages
                     ErrorMessage = ex.Message;
                 }
             }
+        }
+
+        public static void SetUsers(MyDBContext context)
+        {
+            Users = context.Users.ToList();
         }
     }
 }

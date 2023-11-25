@@ -14,16 +14,18 @@
 <link rel="stylesheet" href="~/css/myCss.css"/>
 
 <style>
-    .dark {
+    .grayOrDefault {
         color: @_color;
     }
 </style>
 
 <form>
     <div class="float-end">
-        <span>@ChatModel.Username</span>/////////////////////hide
-        <button type="button" id="editButton" class="border-none"><img src="~/Images/Edit_Username_Icon.png" alt="Edit Username" width="23" height="23" /></button>
-        <div id="editUsername" class="hidden">
+        <div id="chatMode">
+            <span>@ChatModel.Username</span>
+            <button type="button" id="editButton" class="border-none"><img src="~/Images/Edit_Username_Icon.png" alt="Edit Username" width="23" height="23" /></button>
+        </div>
+        <div id="editUsernameMode" class="hidden">
             <input type="text" name="username" id="usernameInput" placeholder="username" size="10" value="@ChatModel.Username" required />
             <input type="submit" value="Apply" />
         </div>
@@ -32,7 +34,7 @@
 
 <form method="get">
     <input type="text" name="message" id="messageInput" placeholder="message" required />
-    <input type="button" value="Send" id="sendButton" class="dark" />
+    <input type="button" value="Send" id="sendButton" class="grayOrDefault" />
     <p id="warningMessage" class="warning hidden">You have to <a href="/Login">login</a> to be able to send messages!</p>
 </form>
 
@@ -64,12 +66,16 @@
     </script>
 }
 
-<script src="~/js/chat.js"></script>
+else {
+    <script src="~/js/chat.js"></script>
+}
 
-@if (!isLoggedIn)
-{
+@if (!isLoggedIn) {
     <script>
-        document.getElementById("editButton").style.display = 'none';
+        document.getElementById("chatMode").style.display = 'none';
     </script>
 }
-<script src="~/js/editUsername.js"></script>
+
+else {
+    <script src="~/js/editUsername.js"></script>
+}

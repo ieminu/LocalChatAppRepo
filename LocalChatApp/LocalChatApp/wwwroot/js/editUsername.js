@@ -1,8 +1,8 @@
 ﻿let editButton = document.getElementById("editButton");
 
 editButton.addEventListener("click", function (event) {
-    editButton.style.display = "none";
-    document.getElementById("editUsername").style.display = "block";
+    document.getElementById("chatMode").style.display = "none";
+    document.getElementById("editUsernameMode").style.display = "block";
 
-    event.preventDefualt();
-})
+    event.preventDefault();
+});

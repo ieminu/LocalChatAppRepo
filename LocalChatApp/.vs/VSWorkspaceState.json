@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\LocalChatApp",
-    "\\LocalChatApp\\Pages"
+    "\\LocalChatApp\\Pages",
+    "\\LocalChatApp\\Pages\\Shared"
   ],
-  "SelectedNode": "\\LocalChatApp\\Pages\\Register.cshtml.cs",
+  "SelectedNode": "\\LocalChatApp\\Pages\\Shared\\_Layout.cshtml",
   "PreviewInSolutionExplorer": false
 }
