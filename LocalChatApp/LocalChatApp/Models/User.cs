@@ -4,6 +4,8 @@ namespace LocalChatApp.Models
 {
     public class User
     {
+        #region Public Variables
+
         public int Id { get; set; }
 
         [Required]
@@ -14,5 +16,7 @@ namespace LocalChatApp.Models
 
         [Required]
         public required string Password { get; set; }
+
+        #endregion
     }
 }

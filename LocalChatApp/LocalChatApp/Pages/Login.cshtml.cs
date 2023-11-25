@@ -9,13 +9,21 @@ namespace LocalChatApp.Pages
 {
     public class LoginModel : PageModel
     {
-        public string ErrorMessage { get; private set; } = string.Empty;
+        #region Public Variables
 
-        readonly MyDBContext? _context;
+        public string ErrorMessage { get; private set; } = string.Empty;
 
         public static bool IsLoggedIn { get; set; }
 
-        bool redirectToPage = false;
+        #endregion
+
+        #region Private Variables
+
+        private readonly MyDBContext? _context;
+
+        private bool redirectToPage = false;
+
+        #endregion
 
         public LoginModel(MyDBContext context)
         {

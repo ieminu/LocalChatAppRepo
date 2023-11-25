@@ -6,11 +6,19 @@ namespace LocalChatApp.Pages
 {
     public class ChatModel : PageModel
     {
+        #region Public Variables
+
         public List<Message>? Messages { get; private set; } = new List<Message>();
 
-        readonly MyDBContext _context;
-
         public static string Username { get; set; } = string.Empty;
+
+        #endregion
+
+        #region Private Variables
+
+        private readonly MyDBContext _context;
+
+        #endregion
 
         public ChatModel(MyDBContext context)
         {

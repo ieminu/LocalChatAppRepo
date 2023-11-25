@@ -4,11 +4,9 @@
 @{
     ViewData["Title"] = "Chat";
 
-    string _color = string.Empty;
-
     bool isLoggedIn = LoginModel.IsLoggedIn;
 
-    _color = !isLoggedIn ? "gray" : "currentColor";
+    string _color = !isLoggedIn ? "gray" : "currentColor";
 }
 
 <link rel="stylesheet" href="~/css/myCss.css"/>
@@ -57,7 +55,8 @@
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-@if (!isLoggedIn) { 
+@if (!isLoggedIn)
+{
     <script>
         document.getElementById("sendButton").addEventListener("click", function (event) {
             document.getElementById("warningMessage").style.display = "block";
@@ -70,7 +69,8 @@ else {
     <script src="~/js/chat.js"></script>
 }
 
-@if (!isLoggedIn) {
+@if (!isLoggedIn)
+{
     <script>
         document.getElementById("chatMode").style.display = 'none';
     </script>

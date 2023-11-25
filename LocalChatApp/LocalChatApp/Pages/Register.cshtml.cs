@@ -12,6 +12,8 @@ namespace LocalChatApp.Pages
 {
     public class RegisterModel : PageModel
     {
+        #region Public Variables
+
         public string ErrorMessage { get; private set; } = string.Empty;
 
         public string SuccessMessage { get; private set; } = string.Empty;
@@ -27,9 +29,15 @@ namespace LocalChatApp.Pages
         [BindProperty]
         public bool WantToLogin { get; set; } = false;
 
+        public static List<User> Users { get; private set; } = new();
+
+        #endregion
+
+        #region Private Variables
+
         private readonly MyDBContext _context;
 
-        public static List<User> Users { get; private set; } = new();
+        #endregion
 
         public RegisterModel(MyDBContext context)
         {
